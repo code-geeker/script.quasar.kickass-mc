@@ -17,7 +17,7 @@ filters = common.Filtering()
 
 # using function from Steeve to add Provider's name and search torrent
 def extract_torrents(data):
-    # try:
+    try:
         filters.information()  # print filters settings
         data = common.clean_html(data)
         size = re.findall('class="nobr center">(.*?)B', data)  # list the size
@@ -39,10 +39,10 @@ def extract_torrents(data):
                 break
         provider.log.info('>>>>>>' + str(cont) + ' torrents sent to Quasar<<<<<<<')
         return results
-    # except:
-    #     provider.log.error('>>>>>>>ERROR parsing data<<<<<<<')
-    #     provider.notify(message='ERROR parsing data', header=None, time=5000, image=settings.icon)
-    #     return []
+    except:
+        provider.log.error('>>>>>>>ERROR parsing data<<<<<<<')
+        provider.notify(message='ERROR parsing data', header=None, time=5000, image=settings.icon)
+        return []
 
 
 def search(query):
