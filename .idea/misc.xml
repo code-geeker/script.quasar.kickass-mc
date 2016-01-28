@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Git.Settings">
-    <option name="PUSH_AUTO_UPDATE" value="true" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-  </component>
-  <component name="ProjectDictionaryState">
-    <dictionary name="Ruben" />
-  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -41,9 +34,6 @@
         <option name="myAddSourceRoots" value="true" />
       </console-settings>
     </option>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\Ruben\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="masterDetails">
     <states>
