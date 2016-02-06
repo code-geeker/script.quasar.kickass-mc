@@ -1,1 +1,2 @@
-Version 1.0.0 Quasar ready
+v1.0.1 New Structure for Payload
+v1.0.0 Quasar ready
