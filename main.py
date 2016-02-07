@@ -32,21 +32,21 @@ def extract_torrents(data):
                 # info_magnet = common.Magnet(magnet)
                 if filters.verify(name, size):
                     cont += 1
-                    results.append({"name": name,
+                    results.append({"name": name.strip(),
                                     "uri": magnet,
                                     # "info_hash": info_magnet.hash,
-                                    "size": size,
+                                    "size": size.strip(),
                                     "seeds": int(seeds),
                                     "peers": int(peers),
-                                    "language": settings.value["language"],
+                                    "language": settings.value.get("language", "en"),
                                     "provider": settings.name
                                     })  # return the torrent
+					if cont >= int(settings.value.get("max_magnets", 10)):  # limit magnets
+						break
                 else:
                     provider.log.warning(filters.reason)
             except:
                 continue
-            if cont >= int(settings.value["max_magnets"]):  # limit magnets
-                break
         provider.log.info('>>>>>>' + str(cont) + ' torrents sent to Quasar<<<<<<<')
         return results
     except:
@@ -62,7 +62,7 @@ def search(query):
 
 
 def search_general(info):
-    info["extra"] = settings.value["extra"]  # add the extra information
+    info["extra"] = settings.value.get("extra", "")  # add the extra information
     query = filters.type_filtering(info, '%20')  # check type filter and set-up filters.title
     url_search = "%s/usearch/%s/?field=seeders&sorder=desc" % (settings.value["url_address"], query)
     provider.log.info(url_search)
@@ -77,7 +77,7 @@ def search_general(info):
 
 def search_movie(info):
     info["type"] = "movie"
-    if settings.value["language"] == 'en':  # Title in english
+    if settings.value.get("language", "en") == 'en':  # Title in english
         query = info['title'].encode('utf-8')  # convert from unicode
         if len(info['title']) == len(query):  # it is a english title
             query += ' ' + str(info['year'])  # Title + year
