@@ -29,23 +29,23 @@ def extract_torrents(data):
                 size = columns[1].text  # size
                 seeds = columns[4].text  # seeds
                 peers = columns[5].text  # peers
+                # info_magnet = common.Magnet(magnet)
+                if filters.verify(name, size):
+                    cont += 1
+                    results.append({"name": name,
+                                    "uri": magnet,
+                                    # "info_hash": info_magnet.hash,
+                                    "size": size,
+                                    "seeds": int(seeds),
+                                    "peers": int(peers),
+                                    "language": settings.value["language"],
+                                    "provider": settings.name
+                                    })  # return the torrent
+                else:
+                    provider.log.warning(filters.reason)
             except:
                 continue
-            info_magnet = common.Magnet(magnet)
-            if filters.verify(name, size):
-                cont += 1
-                results.append({"name": name,
-                                "uri": magnet,
-                                "info_hash": info_magnet.hash,
-                                "size": size,
-                                "seeds": int(seeds),
-                                "peers": int(peers),
-                                "language": settings.value["language"],
-                                "provider": settings.name
-                                })  # return the torrent
-            else:
-                provider.log.warning(filters.reason)
-            if cont >= settings.value["max_magnets"]:  # limit magnets
+            if cont >= int(settings.value["max_magnets"]):  # limit magnets
                 break
         provider.log.info('>>>>>>' + str(cont) + ' torrents sent to Quasar<<<<<<<')
         return results
