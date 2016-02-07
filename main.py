@@ -41,8 +41,8 @@ def extract_torrents(data):
                                     "language": settings.value.get("language", "en"),
                                     "provider": settings.name
                                     })  # return the torrent
-					if cont >= int(settings.value.get("max_magnets", 10)):  # limit magnets
-						break
+                    if cont >= int(settings.value.get("max_magnets", 10)):  # limit magnets
+                            break
                 else:
                     provider.log.warning(filters.reason)
             except:
