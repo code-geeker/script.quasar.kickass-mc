@@ -23,7 +23,7 @@ def extract_torrents(data):
         links = soup.table.tbody.find_all('tr', {'class': ['odd', 'even']})
         for link in links:
             columns = link.select('td')
-            if len(columns) == 5:
+            if len(columns) == 6:
                 name = columns[0].find('a', class_='cellMainLink').text  # name
                 magnet = columns[0].find('a', {'title': 'Torrent magnet link'})['href']  # magnet
                 size = columns[1].text  # size

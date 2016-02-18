@@ -1222,6 +1222,7 @@ links = soup.table.tbody.find_all('tr', {'class': ['odd', 'even']})
 
 for link in links:
     columns = link.select('td')
+    print len(columns)
     print columns[0].find('a', class_='cellMainLink').text  # name
     print columns[0].find('a', {'title': 'Torrent magnet link'})['href']  # name
     # print columns[1]  # magnet
