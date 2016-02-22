@@ -3,7 +3,7 @@
     <category label="32050">
         <setting label="32093" type="text" id="url_address" default="http://kat.cr"/>
         <setting label="32199" type="lsep"/>
-        <setting label="32151" type="labelenum" id="language" values="en|de|es|fr|it|pt" default="en"/>
+        <setting label="32151" type="labelenum" id="language" values="en|de|es|fr|it|pt|ru" default="en"/>
         <setting label="32200" type="lsep"/>
         <setting label="32201" type="text" id="extra" default=""/>
         <setting label="32057" type="lsep"/>
