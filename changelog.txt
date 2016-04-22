@@ -1,0 +1,8 @@
+v1.3.5 fix common, new language and package season selector
+v1.3.0 search season support
+v1.2.2 Fix columns
+v1.2.1 new Icon
+v1.2.0 icon support
+v1.1.0 normalize version
+v1.0.1 New Structure for Payload
+v1.0.0 Quasar ready
