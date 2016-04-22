@@ -65,7 +65,7 @@ def new_extract_torrents(data):
         # provider.log.info(jsondata)
         for link in jsondata['list']:
             if link is not None:
-                name = link['title']
+                name = link['title'].encode('utf-8').strip()
                 provider.log.info(name)
                 magnet = 'magnet:?xt=urn:btih:'+ link['hash']
                 size = str(link['size'])
@@ -80,8 +80,8 @@ def new_extract_torrents(data):
                                     "uri": magnet,
                                     # "info_hash": info_magnet.hash,
                                     "size": size,
-                                    "seeds": sint(seeds),
-                                    "peers": sint(peers),
+                                    # "seeds": sint(seeds),
+                                    # "peers": sint(peers),
                                     "language": settings.value.get("language", "en"),
                                     "provider": settings.name,
                                     "icon": settings.icon,
